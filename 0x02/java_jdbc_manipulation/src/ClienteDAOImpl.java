@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class ClienteDaoImpl implements ClienteDAO {
+public class ClienteDAOImpl implements ClienteDAO {
     @Override
     public Connection connect(String urlConexao) {
         Connection connection = null;
