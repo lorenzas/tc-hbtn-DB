@@ -10,14 +10,6 @@ public class ClienteDAOImpl implements ClienteDAO {
             connection = DriverManager.getConnection(urlConexao);
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
         }
         return connection;
     }
@@ -51,8 +43,8 @@ public class ClienteDAOImpl implements ClienteDAO {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, cliente.getNome());
             pstmt.setInt(2, cliente.getIdade());
-            pstmt.setString(3, cliente.getCpf());
-            pstmt.setString(4, cliente.getRg());
+            pstmt.setString(3, removerCaracteresEspeciais(cliente.getCpf()));
+            pstmt.setString(4, removerCaracteresEspeciais(cliente.getRg()));
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -83,7 +75,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public void update(String urlConexao, int id, String name, Integer idade) {
-        String sql = "UPDATE CLIENTE SET NOME = ? , + IDADE = ?    WHERE ID = ?";
+        String sql = "UPDATE CLIENTE SET NOME = ? , IDADE = ?    WHERE ID = ?";
 
         try {
             Connection connection = connect(urlConexao);
@@ -109,5 +101,9 @@ public class ClienteDAOImpl implements ClienteDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public String removerCaracteresEspeciais(String documento) {
+        return documento.replace(".", "").replace("-", "");
     }
 }
