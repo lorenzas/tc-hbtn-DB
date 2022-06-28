@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/0X02/java_jdbc_manipulation/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/0x01/java_jdbc" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/0x02/java_jdbc_manipulation/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
