@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/jpa_hibernate/pom.xml" />
+        <option value="$PROJECT_DIR$/java_jpa_hibernate_mapeamento/gestao-cursos-api/pom.xml" />
       </list>
     </option>
   </component>
